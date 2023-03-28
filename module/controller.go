@@ -121,7 +121,7 @@ func GetPresensiFromWaktu(tanggal string, db *mongo.Database, col string) (kehad
 	return kehadiran
 }
 
-func GetKaryawanromJamKerja(jam_masuk string, db *mongo.Database, col string) (masuk model.Jamker) {
+func GetKaryawanFromJamKerja(jam_masuk string, db *mongo.Database, col string) (masuk model.Jamker) {
 	jammasuk := db.Collection(col)
 	filter := bson.M{"jam_masuk": jam_masuk}
 	err := jammasuk.FindOne(context.TODO(), filter).Decode(&masuk)
