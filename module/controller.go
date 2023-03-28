@@ -113,7 +113,7 @@ func GetGajiFromNamaKaryawan(nama string, db *mongo.Database, col string) (staf 
 
 func GetPresensiromWaktu(tanggal string, db *mongo.Database, col string) (kehadiran model.Presensi) {
 	waktu := db.Collection(col)
-	filter := bson.M{"tanggal": tanggal}
+	filter := bson.M{"waktug.tanggal": tanggal}
 	err := waktu.FindOne(context.TODO(), filter).Decode(&kehadiran)
 	if err != nil {
 		fmt.Printf("GetPresensiromWaktu: %v\n", err)
