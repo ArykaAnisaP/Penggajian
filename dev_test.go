@@ -215,3 +215,15 @@ func TestGetGajiFromNamaKaryawan(t *testing.T) {
 	biodata := module.GetGajiFromNamaKaryawan(nama, module.MongoConn, "uang")
 	fmt.Println(biodata)
 }
+
+func TestGetPresensiFromWaktu(t *testing.T) {
+	tanggal := "12-03-2023"
+	data := module.GetPresensiFromWaktu(tanggal, module.MongoConn, "presensi")
+	fmt.Println(data)
+}
+
+func TestGetKaryawanFromNama(t *testing.T) {
+	nama := "nia"
+	data := module.GetKaryawanFromNama(nama, module.MongoConn, "karyawan")
+	fmt.Println(data)
+}

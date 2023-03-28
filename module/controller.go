@@ -116,17 +116,17 @@ func GetPresensiFromWaktu(tanggal string, db *mongo.Database, col string) (kehad
 	filter := bson.M{"waktug.tanggal": tanggal}
 	err := waktu.FindOne(context.TODO(), filter).Decode(&kehadiran)
 	if err != nil {
-		fmt.Printf("GetPresensiromWaktu: %v\n", err)
+		fmt.Printf("GetPresensiFromWaktu: %v\n", err)
 	}
 	return kehadiran
 }
 
-func GetKaryawanFromJamKerja(jam_masuk string, db *mongo.Database, col string) (masuk model.Jamker) {
-	jammasuk := db.Collection(col)
-	filter := bson.M{"jam_masuk": jam_masuk}
-	err := jammasuk.FindOne(context.TODO(), filter).Decode(&masuk)
+func GetKaryawanFromNama(nama string, db *mongo.Database, col string) (masuk model.Karyawan) {
+	biodata := db.Collection(col)
+	filter := bson.M{"nama": nama}
+	err := biodata.FindOne(context.TODO(), filter).Decode(&masuk)
 	if err != nil {
-		fmt.Printf("GetKaryawanromJamKerja: %v\n", err)
+		fmt.Printf("GetKaryawanFromNama: %v\n", err)
 	}
 	return masuk
 }
