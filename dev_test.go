@@ -114,7 +114,7 @@ func TestInsertWaktu(t *testing.T) {
 	fmt.Println(hasil)
 }
 
-func TestInserJamker(t *testing.T) {
+func TestInsertJamker(t *testing.T) {
 	jam_masuk := "08.00"
 	jam_keluar := "17.00"
 	hari := "senin"
@@ -162,9 +162,9 @@ func TestInsertUang(t *testing.T) {
 	fmt.Println(hasil)
 }
 
-func TestInserBendahara(t *testing.T) {
+func TestInsertBendahara(t *testing.T) {
 	nama := "anisa"
-	email := "aryka@gm,ail.com"
+	email := "aryka@gmail.com"
 	phone_number := "085842138"
 	hari := "selasa"
 	biodata := model.Karyawan{
