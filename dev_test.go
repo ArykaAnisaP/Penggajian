@@ -209,3 +209,9 @@ func TestInserBendahara(t *testing.T) {
 	hasil := module.InsertBendahara(module.MongoConn, "bendahara", nama, email, phone_number, hari, biodata, gaji)
 	fmt.Println(hasil)
 }
+
+func TestGetGajiFromNamaKaryawan(t *testing.T) {
+	nama := "aryka"
+	biodata := module.GetGajiFromNamaKaryawan(nama, module.MongoConn, "uang")
+	fmt.Println(biodata)
+}

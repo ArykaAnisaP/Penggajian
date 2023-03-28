@@ -103,7 +103,7 @@ func InsertBendahara(db *mongo.Database, col string, nama string, email string, 
 
 func GetGajiFromNamaKaryawan(nama string, db *mongo.Database, col string) (staf model.Uang) {
 	Nm_karyawan := db.Collection(col)
-	filter := bson.M{"nama": nama}
+	filter := bson.M{"biodata.nama": nama}
 	err := Nm_karyawan.FindOne(context.TODO(), filter).Decode(&staf)
 	if err != nil {
 		fmt.Printf("getgajiFromKaryawan: %v\n", err)
