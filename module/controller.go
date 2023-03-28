@@ -111,7 +111,7 @@ func GetGajiFromNamaKaryawan(nama string, db *mongo.Database, col string) (staf 
 	return staf
 }
 
-func GetPresensiromWaktu(tanggal string, db *mongo.Database, col string) (kehadiran model.Presensi) {
+func GetPresensiFromWaktu(tanggal string, db *mongo.Database, col string) (kehadiran model.Presensi) {
 	waktu := db.Collection(col)
 	filter := bson.M{"waktug.tanggal": tanggal}
 	err := waktu.FindOne(context.TODO(), filter).Decode(&kehadiran)
