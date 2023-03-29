@@ -227,3 +227,9 @@ func TestGetKaryawanFromNama(t *testing.T) {
 	data := module.GetKaryawanFromNama(nama, module.MongoConn, "karyawan")
 	fmt.Println(data)
 }
+
+func TestGetGajiFromPresensi(t *testing.T) {
+	phone_number := "0854632178"
+	data := module.GetKaryawanFromNama(phone_number, module.MongoConn, "uang")
+	fmt.Println(data)
+}
