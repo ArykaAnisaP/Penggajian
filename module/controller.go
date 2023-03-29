@@ -131,10 +131,10 @@ func GetKaryawanFromNama(nama string, db *mongo.Database, col string) (masuk mod
 	return masuk
 }
 
-func TestGetGajiFromPresensi(uang string, db *mongo.Database, col string) (masuk model.Uang) {
-	phone_number := db.Collection(col)
-	filter := bson.M{"uang": uang}
-	err := phone_number.FindOne(context.TODO(), filter).Decode(&masuk)
+func TestGetGajiFromPresensi(phone_number string, db *mongo.Database, col string) (masuk model.Uang) {
+	nohp := db.Collection(col)
+	filter := bson.M{"uang.phone_number": phone_number}
+	err := nohp.FindOne(context.TODO(), filter).Decode(&masuk)
 	if err != nil {
 		fmt.Printf("GetGajiFromPresensi: %v\n", err)
 	}
