@@ -230,6 +230,6 @@ func TestGetKaryawanFromNama(t *testing.T) {
 
 func TestGetGajiFromPresensi(t *testing.T) {
 	phone_number := "0854632178"
-	data := module.GetKaryawanFromNama(phone_number, module.MongoConn, "uang")
+	data := module.GetGajiFromPresensi(phone_number, module.MongoConn, "uang")
 	fmt.Println(data)
 }
