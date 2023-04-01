@@ -25,7 +25,7 @@ func TestInsertPimpinan(t *testing.T) {
 		Tunjangan_pph: "3200000",
 		Potongan:      "5670000",
 		Biodata: model.Karyawan{
-			Nama:         "aryka",
+			Nama:         "anisa",
 			Phone_number: "09897656565",
 			Jabatan:      "ui/ux",
 			Hari_gaji:    "selasa",
@@ -54,7 +54,7 @@ func TestInsertPimpinan(t *testing.T) {
 		Piket_tim:  "a",
 	}
 	biodata := model.Karyawan{
-		Nama:         "aryka",
+		Nama:         "anisa",
 		Phone_number: "09897656565",
 		Jabatan:      "ui/ux",
 		Hari_gaji:    "selasa",
@@ -125,37 +125,37 @@ func TestInsertJamker(t *testing.T) {
 }
 
 func TestInsertUang(t *testing.T) {
-	tanggal := "29-03-2023"
-	gaji_pokok := "100000000"
+	tanggal := "01-09-2023"
+	gaji_pokok := "5300000"
 	bonus := model.Jamker{
 		Jam_masuk:  "08.00",
 		Jam_keluar: "17.00",
-		Hari:       "senin",
+		Hari:       "Selasa",
 		Shift:      "pagi",
 		Piket_tim:  "a",
 	}
-	tunjangan_pph := "12000000"
-	potongan := "5000000"
+	tunjangan_pph := "250000"
+	potongan := "40000"
 	biodata := model.Karyawan{
-		Nama:         "aryka",
-		Phone_number: "09897656565",
-		Jabatan:      "ui/ux",
-		Hari_gaji:    "selasa",
+		Nama:         "winda",
+		Phone_number: "08963253689",
+		Jabatan:      " Computer Hardware Engineer",
+		Hari_gaji:    "Senin",
 	}
 	absensi := model.Presensi{
-		Location:     "Bandung",
-		Phone_number: "0854632178",
+		Location:     "Bali",
+		Phone_number: "08963253689",
 		Kehadiran:    "Hadir",
 		Biodata: model.Karyawan{
-			Nama:         "aryka",
-			Phone_number: "09897656565",
-			Jabatan:      "ui/ux",
-			Hari_gaji:    "selasa",
+			Nama:         "winda",
+			Phone_number: "08963253689",
+			Jabatan:      " Computer Hardware Engineer",
+			Hari_gaji:    "Senin",
 		},
 		WaktuG: model.Waktu{
 			Hari:    "Senin",
-			Jam:     "08.00",
-			Tanggal: "12-03-2023",
+			Jam:     "09.00",
+			Tanggal: "20-11-2023",
 		},
 	}
 	hasil := module.InsertUang(module.MongoConn, "uang", tanggal, gaji_pokok, bonus, tunjangan_pph, potongan, biodata, absensi)
@@ -165,44 +165,44 @@ func TestInsertUang(t *testing.T) {
 func TestInsertBendahara(t *testing.T) {
 	nama := "anisa"
 	email := "aryka@gmail.com"
-	phone_number := "085842138"
-	hari := "selasa"
+	phone_number := "086558747457"
+	hari := "Kamis"
 	biodata := model.Karyawan{
-		Nama:         "aryka",
-		Phone_number: "09897656565",
-		Jabatan:      "ui/ux",
-		Hari_gaji:    "selasa",
+		Nama:         "antonio",
+		Phone_number: "086558747457",
+		Jabatan:      "programmer",
+		Hari_gaji:    "Sabtu",
 	}
 	gaji := model.Uang{
 		Tanggal:    "08-04-2023",
-		Gaji_pokok: "100000000",
+		Gaji_pokok: "4500000",
 		Bonus: model.Jamker{
-			Jam_masuk:  "08.00",
-			Jam_keluar: "17.00",
-			Hari:       "senin",
-			Shift:      "pagi",
-			Piket_tim:  "a",
+			Jam_masuk:  "15.00",
+			Jam_keluar: "20.30",
+			Hari:       "Sabtu",
+			Shift:      "sore",
+			Piket_tim:  "c",
 		},
-		Tunjangan_pph: "3200000",
-		Potongan:      "5670000",
+		Tunjangan_pph: "125000",
+		Potongan:      "130000",
 		Biodata: model.Karyawan{
-			Nama:         "aryka",
-			Phone_number: "09897656565",
-			Hari_gaji:    "selasa",
+			Nama:         "antonio",
+			Phone_number: "08542136987",
+			Hari_gaji:    "Kamis",
 		},
 		Absensi: model.Presensi{
-			Location:     "Bandung",
-			Phone_number: "085214235678",
+			Location:     "Yogyakarta",
+			Phone_number: "08542136987",
 			Biodata: model.Karyawan{
-				Nama:         "aryka",
-				Phone_number: "09897656565",
-				Jabatan:      "ui/ux",
+				Nama:         "antonio",
+				Phone_number: "08542136987",
+				Jabatan:      "programmer",
 				Hari_gaji:    "selasa",
 			},
 			WaktuG: model.Waktu{
-				Hari:    "Senin",
-				Jam:     "08.00",
-				Tanggal: "12-03-2023",
+				Hari:    "Kamis",
+				Jam:     "09.00",
+				Tanggal: "28-12-2023",
 			},
 		},
 	}
@@ -231,5 +231,10 @@ func TestGetKaryawanFromNama(t *testing.T) {
 func TestGetGajiFromPresensi(t *testing.T) {
 	phone_number := "0854632178"
 	data := module.GetGajiFromPresensi(phone_number, module.MongoConn, "uang")
+	fmt.Println(data)
+}
+
+func TestGetAll(t *testing.T) {
+	data := module.GetAllUang(module.MongoConn, "presensi")
 	fmt.Println(data)
 }

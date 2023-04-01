@@ -140,3 +140,17 @@ func GetGajiFromPresensi(phone_number string, db *mongo.Database, col string) (m
 	}
 	return masuk
 }
+
+func GetAllUang(db *mongo.Database, col string) (data []model.Uang) {
+	gaji := db.Collection(col)
+	filter := bson.M{}
+	cursor, err := gaji.Find(context.TODO(), filter)
+	if err != nil {
+		fmt.Println("GetALLData :", err)
+	}
+	err = cursor.All(context.TODO(), &data)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return
+}
