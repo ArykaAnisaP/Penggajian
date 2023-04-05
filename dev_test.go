@@ -235,6 +235,6 @@ func TestGetGajiFromPresensi(t *testing.T) {
 }
 
 func TestGetAll(t *testing.T) {
-	data := module.GetAllUang(module.MongoConn, "presensi")
+	data := module.GetAllUang(module.MongoConn, "uang")
 	fmt.Println(data)
 }
